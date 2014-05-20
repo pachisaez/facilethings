@@ -53,4 +53,11 @@ describe "Facilethings::Client" do
     end
 	end
 
+  describe ".partner" do
+    it "should be me" do
+      client = Facilethings::Client.new GOOD_CREDENTIALS
+      client.partner[:user_id] == 1
+    end
+  end
+
 end

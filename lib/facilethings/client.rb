@@ -1,11 +1,14 @@
 require "oauth2"
 require "json"
+
 require "facilethings/api/user"
+require "facilethings/api/partner"
 
 module Facilethings
 
  class Client
     include Facilethings::API::User
+    include Facilethings::API::Partner
 
     # Define the same set of accessors as the Facilethings module
     attr_accessor *Configuration::VALID_CONFIG_KEYS
