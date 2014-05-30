@@ -1,6 +1,4 @@
-require "facilethings/configuration"
-require "facilethings/client"
+require 'facilethings/rest/client'
+require 'facilethings/user'
+require 'facilethings/partner'
 
-module Facilethings
-	extend Configuration
-end
