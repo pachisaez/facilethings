@@ -3,7 +3,7 @@ require 'facilethings/base'
 
 module Facilethings	
 	class Partner < Facilethings::Base
-    attr_reader :user_id, :banner_source, :min_discount, :max_discount,
+    attr_reader :id, :user_id, :banner_source, :min_discount, :max_discount,
  	    :discount, :individual_coupons, :group_coupons
 
 		def coupons?
