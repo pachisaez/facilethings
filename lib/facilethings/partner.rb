@@ -1,5 +1,6 @@
 require 'memoizable'
 require 'facilethings/base'
+require 'facilethings/rest/partner'
 
 module Facilethings	
 	class Partner < Facilethings::Base
