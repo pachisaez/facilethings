@@ -1,7 +1,7 @@
 require "oauth2"
 
 module Facilethings
- class Client
+  class Client
     attr_accessor :key, :secret, :token, :endpoint
     URL_PREFIX = "http://api.facilethings.com"
 

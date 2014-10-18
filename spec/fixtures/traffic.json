@@ -1,2 +1,3 @@
-[{ "date": "2014/10/04", "user_id": 102, "status": "try", "income": 0.0, "commission": 0.0, "cleared": 0.0  }, 
-{ "date": "2014/10/04", "user_id": 103, "status": "pay", "income": 35.5, "commission": 8.8, "cleared": 0.0 }]
+[{ "status": "paid", "count": 2, "income": 35.5, "commission": 8.8, "cleared": 4.2 },
+{ "status": "left", "count": 23, "income": 0.0, "commission": 0.0, "cleared": 0.0 }, 
+{ "status": "trying", "count": 30, "income": 0.0, "commission": 0.0, "cleared": 0.0 }]
