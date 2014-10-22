@@ -10,8 +10,8 @@ module Facilethings
       end
 
       # get traffic info if the partner has an affiliate website
-      def traffic(partner_id, month)
-        get_with_objects("/v1/partners/#{partner_id}/traffic.json", { :params => { :month => month } }, Facilethings::TrafficData)
+      def traffic(partner_id, from, to)
+        get_with_objects("/v1/partners/#{partner_id}/traffic.json", { :params => { :from => from, :to => to } }, Facilethings::TrafficData)
       end
 
     end

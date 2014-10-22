@@ -31,11 +31,11 @@ describe Facilethings::REST::Partner do
 
   describe ".traffic" do
     before do
-      stub_get('/v1/partners/24/traffic.json?month=8').to_return(:body => fixture('traffic.json'), :headers => {:content_type => 'application/json; charset=utf-8'})
+      stub_get('/v1/partners/24/traffic.json?from=2014-10-01&to=2014-10-31').to_return(:body => fixture('traffic.json'), :headers => {:content_type => 'application/json; charset=utf-8'})
     end
     it 'requests the correct resource' do
-      data = @client.traffic(24, 8)
-      expect(a_get('/v1/partners/24/traffic.json?month=8')).to have_been_made
+      data = @client.traffic(24, "2014-10-01", "2014-10-31")
+      expect(a_get('/v1/partners/24/traffic.json?from=2014-10-01&to=2014-10-31')).to have_been_made
       expect(data.count).to eq 3
     end
   end
