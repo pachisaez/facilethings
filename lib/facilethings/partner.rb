@@ -4,8 +4,8 @@ require 'facilethings/rest/partner'
 
 module Facilethings	
 	class Partner < Facilethings::Base
-    attr_reader :id, :user_id, :banner_source, :min_discount, :max_discount,
- 	    :discount, :individual_coupons, :group_coupons
+    attr_reader :id, :user_id, :currency, :banner_source, :blog_commission,
+    	:min_discount, :max_discount, :discount, :individual_coupons, :group_coupons
 
 		def coupons?
 			self.individual_coupons || self.group_coupons
