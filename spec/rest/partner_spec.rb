@@ -40,4 +40,15 @@ describe Facilethings::REST::Partner do
     end
   end
 
+  describe ".coupons" do
+    before do
+      stub_get('/v1/partners/24/coupons.json?from=2014-10-01&to=2014-10-31').to_return(:body => fixture('coupons.json'), :headers => {:content_type => 'application/json; charset=utf-8'})
+    end
+    it 'requests the correct resource' do
+      data = @client.coupons(24, "2014-10-01", "2014-10-31")
+      expect(a_get('/v1/partners/24/coupons.json?from=2014-10-01&to=2014-10-31')).to have_been_made
+      expect(data.count).to eq 4
+    end
+  end
+
 end
