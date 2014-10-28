@@ -11,13 +11,13 @@ module Facilethings
       end
 
       # get traffic info if the partner has an affiliate website
-      def traffic(partner_id, from, to)
-        get_with_objects("/v1/partners/#{partner_id}/traffic.json", { :params => { :from => from, :to => to } }, Facilethings::TrafficData)
+      def traffic(from, to)
+        get_with_objects("/v1/partners/traffic.json", { :params => { :from => from, :to => to } }, Facilethings::TrafficData)
       end
 
       # get coupons info if the partner is an ambassador
-      def coupons(partner_id, from, to)
-        get_with_objects("/v1/partners/#{partner_id}/coupons.json", { :params => { :from => from, :to => to } }, Facilethings::CouponsData)
+      def coupons(from, to)
+        get_with_objects("/v1/partners/coupons.json", { :params => { :from => from, :to => to } }, Facilethings::CouponsData)
       end
 
     end
