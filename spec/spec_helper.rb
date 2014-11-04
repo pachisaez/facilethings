@@ -18,9 +18,36 @@ def a_get(path)
   a_request(:get, Facilethings::Client::URL_PREFIX + path)
 end
 
+def a_post(path)
+  a_request(:post, Facilethings::Client::URL_PREFIX + path)
+end
+
+def a_put(path)
+  a_request(:put, Facilethings::Client::URL_PREFIX + path)
+end
+
+def a_delete(path)
+  a_request(:delete, Facilethings::Client::URL_PREFIX + path)
+end
+
 def stub_get(path)
   stub_request(:get, Facilethings::Client::URL_PREFIX + path).
   	with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Authorization'=>"Bearer #{MY_ACCESS_TOKEN}", 'User-Agent'=>'Faraday v0.9.0'})
+end
+
+def stub_post(path)
+	stub_request(:post, Facilethings::Client::URL_PREFIX + path).
+    with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Authorization'=>"Bearer #{MY_ACCESS_TOKEN}", 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Faraday v0.9.0'})
+end
+
+def stub_put(path)
+	stub_request(:put, Facilethings::Client::URL_PREFIX + path).
+    with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Authorization'=>"Bearer #{MY_ACCESS_TOKEN}", 'Content-Type'=>'application/x-www-form-urlencoded', 'User-Agent'=>'Faraday v0.9.0'})
+end
+
+def stub_delete(path)
+	stub_request(:delete, Facilethings::Client::URL_PREFIX + path).
+    with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Authorization'=>"Bearer #{MY_ACCESS_TOKEN}", 'User-Agent'=>'Faraday v0.9.0'})
 end
 
 def fixture_path

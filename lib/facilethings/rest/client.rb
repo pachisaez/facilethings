@@ -10,14 +10,26 @@ module Facilethings
         JSON.parse access_token.get(url, options).body, symbolize_names: true
       end
 
+      def put(url, options = {})
+        JSON.parse access_token.put(url, options).body, symbolize_names: true
+      end
+
+      def post(url, options = {})
+        JSON.parse access_token.post(url, options).body, symbolize_names: true
+      end
+
+      def delete(url, options = {})
+        JSON.parse access_token.delete(url, options).body, symbolize_names: true
+      end
+
 	    def get_with_object(url, options = {}, klass)
-	      klass.new(get(url, options))
+	      klass.new(self, get(url, options))
 	    end
 
 	    def get_with_objects(url, options = {}, klass)
 	    	data = get(url, options)
 	      data.collect do |element|
-	        klass.new(element)
+	        klass.new(self, element)
 	      end
 	    end
     end

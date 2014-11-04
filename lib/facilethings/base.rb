@@ -1,35 +1,72 @@
-require 'memoizable'
 require 'facilethings/error'
 
 module Facilethings
-  class Base
-    include Memoizable
 
-    attr_reader :attrs
-    alias_method :to_h, :attrs
- 
+  class Base   
+    @@resource_path = ""
+
     class << self
-      # Define methods that retrieve the value from attributes
       def attr_reader(*attrs)
         attrs.each do |attr|
-          define_attribute_method(attr)
+          define_get_method(attr)
         end
       end
 
-      # Dynamically define a method for an attribute
-      def define_attribute_method(key)
+      def attr_accessor(*attrs)
+        attrs.each do |attr|
+          define_get_method(attr)
+          define_set_method(attr)
+        end
+      end
+
+      def define_get_method(key)
         define_method(key) do
-          @attrs[key]
+          instance_variable_get("@#{key}")
         end
-        memoize(key)
+      end
+
+      def define_set_method(key)
+        define_method("#{key}=") do |value|
+          instance_variable_set("@#{key}", value)
+        end
       end
     end
 
-    # Initializes a new object
-    def initialize(attrs = {})
+    def initialize(client, attrs = {})
       raise Facilethings::Error.new(attrs[:error]) if attrs[:error]
-      @attrs = attrs || {}
+      @client = client
+      attrs.each_pair do |key, value|
+        instance_variable_set("@#{key}", value)
+      end
     end
 
+    def save
+      id ? @client.put(rest_path, extract_body) : @client.post(rest_path, extract_body)
+    end
+
+    def destroy
+      @client.delete(rest_path)
+    end
+
+  protected
+    def class_symbol
+      self.class.to_s.split("::")[1].downcase.to_sym
+    end
+
+    def attrs
+      self.instance_variables.reject { |v| v==:@client }
+    end
+
+    def extract_body
+      h = Hash.new
+      attrs.each do |attr|
+        h[attr.to_s[1..-1].to_sym] = self.instance_variable_get(attr)
+      end
+      { :body => { class_symbol => h }}
+    end
+
+    def rest_path
+      id ? @@resource_path + "/#{id}.json" : @@resource_path + ".json"
+    end
   end
 end
