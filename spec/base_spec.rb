@@ -15,6 +15,15 @@ describe Facilethings::Base do
 			coupon.save
       expect(a_post('/v1/coupons.json')).to have_been_made
 		end
+		it "should update the ID if it's a new item" do
+      stub_post('/v1/coupons.json')
+      	.with(:body => {"coupon"=>{"amount"=>"6", "code"=>"CODE", "discount"=>"20.0", "note"=>"note"}})
+				.to_return(:body => fixture('saved.json'), :headers => {:content_type => 'application/json; charset=utf-8'})			
+			coupon = Facilethings::Coupon.new(@client, { :code => "CODE", :note => "note", 
+				:amount => 6, :discount => 20.0 })
+			coupon.save
+      expect(coupon.id).to eq(14)
+		end
 		it "should do a PUT rest api call if it's a existing item" do
       stub_put('/v1/coupons/2.json')
       	.with(:body => {"coupon"=>{"id" => "2", "amount"=>"6", "code"=>"CODE", "discount"=>"20.0", "note"=>"note"}})

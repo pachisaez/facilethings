@@ -32,6 +32,8 @@ module Facilethings
       end
     end
 
+    attr_reader :id
+
     def initialize(client, attrs = {})
       raise Facilethings::Error.new(attrs[:error]) if attrs[:error]
       @client = client
@@ -41,7 +43,13 @@ module Facilethings
     end
 
     def save
-      id ? @client.put(rest_path, extract_body) : @client.post(rest_path, extract_body)
+      if self.id
+        response = @client.put(rest_path, extract_body) 
+      else
+        response = @client.post(rest_path, extract_body)
+        @id = response[:id]
+      end
+      response
     end
 
     def destroy

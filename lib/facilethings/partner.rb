@@ -4,7 +4,7 @@ require 'facilethings/partners/coupons_data'
 
 module Facilethings	
 	class Partner < Facilethings::Base
-    attr_reader :id, :currency, :banner_source, :blog_commission,
+    attr_reader :currency, :banner_source, :blog_commission,
     	:min_discount, :max_discount, :individual_coupons, :group_coupons
     attr_accessor :discount
 

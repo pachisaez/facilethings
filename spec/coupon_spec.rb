@@ -32,7 +32,7 @@ describe Facilethings::Coupon do
 		it "should not build set methods for reader attributes" do
 			coupon = Facilethings::Coupon.new(@client)
 			
-			expect{coupon.id = 2}.to raise_error
+			expect{coupon.id = 4}.to raise_error
 			expect{coupon.created_at = DateTime.now}.to raise_error
 		end
 	end
