@@ -3,7 +3,7 @@ require 'facilethings/base'
 module Facilethings	
 	class CouponsData < Facilethings::Base
 		attr_reader :user, :status, :coupon
-    attr_accessor :currency, :income, :commission, :cleared
+    attr_accessor :currency, :income, :commission, :cleared, :date
 
     #def convert_to(currency, rate)
     #	@attrs[:currency] = currency
