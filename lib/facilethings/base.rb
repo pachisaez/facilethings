@@ -3,7 +3,6 @@ require 'facilethings/error'
 module Facilethings
 
   class Base   
-    @@resource_path = ""
 
     class << self
       def attr_reader(*attrs)
@@ -73,8 +72,12 @@ module Facilethings
       { :body => { class_symbol => h }}
     end
 
+    def resource_path
+      ""
+    end
+
     def rest_path
-      id ? @@resource_path + "/#{id}.json" : @@resource_path + ".json"
+      id ? resource_path + "/#{id}.json" : resource_path + ".json"
     end
   end
 end

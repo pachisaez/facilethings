@@ -8,8 +8,6 @@ module Facilethings
     	:min_discount, :max_discount, :individual_coupons, :group_coupons
     attr_accessor :discount
 
-    @@resource_path = '/v1/partners' 
-
 		def coupons?
 			self.individual_coupons || self.group_coupons
 		end
@@ -26,5 +24,9 @@ module Facilethings
       	Facilethings::CouponsData)
     end
 
+  protected
+    def resource_path
+      "/#{VERSION_URL}/partners"
+    end
 	end
 end

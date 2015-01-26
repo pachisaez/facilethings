@@ -5,6 +5,9 @@ module Facilethings
     attr_reader :created_at
     attr_accessor :code, :note, :amount, :discount
 
-    @@resource_path = '/v1/coupons' 
+  protected
+  	def resource_path
+    	"/#{VERSION_URL}/coupons"
+  	end
 	end
 end
