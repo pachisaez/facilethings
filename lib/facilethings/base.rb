@@ -2,7 +2,9 @@ require 'facilethings/error'
 
 module Facilethings
 
-  class Base   
+  class Base  
+
+    VERSION_URL = "v1" 
 
     class << self
       def attr_reader(*attrs)
