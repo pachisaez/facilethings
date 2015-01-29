@@ -22,13 +22,17 @@ module Facilethings
         JSON.parse access_token.delete(url, options).body, symbolize_names: true
       end
 
-	    def get_with_object(url, options = {}, klass)
-	      klass.new(self, get(url, options))
+	    def get_with_object(url, options = {}, klass, object)
+        element = get(url, options)
+        element = element[object] if object and not element[:error]
+	      klass.new(self, element)
 	    end
 
-	    def get_with_objects(url, options = {}, klass)
+	    def get_with_objects(url, options = {}, klass, object)
 	    	data = get(url, options)
 	      data.collect do |element|
+          puts element.inspect
+          element = element[object] if object and not element[:error]
 	        klass.new(self, element)
 	      end
 	    end

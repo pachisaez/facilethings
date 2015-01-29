@@ -46,7 +46,9 @@ module Facilethings
         response = @client.put(rest_path, extract_body) 
       else
         response = @client.post(rest_path, extract_body)
-        @id = response[:id]
+        unless response[:error]
+          @id = response[response.keys[0]][:id]
+        end
       end
       response
     end

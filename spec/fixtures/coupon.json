@@ -1,1 +1,1 @@
-{ "id": 14, "code": "PAR-005", "created_at": "2014-10-28", "amount": 1, "discount": 10.0, "note": "Judy" }
+{ "coupon": { "id": 14, "code": "PAR-005", "created_at": "2014-10-28", "amount": 1, "discount": 10.0, "note": "Judy" } }

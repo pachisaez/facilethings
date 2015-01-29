@@ -15,13 +15,13 @@ module Facilethings
     def traffic_data(from, to)
       @client.get_with_objects("/v1/partners/traffic.json", 
       	{ :params => { :from => from, :to => to } }, 
-      	Facilethings::TrafficData)
+      	Facilethings::TrafficData, nil)
     end
 
     def coupons_data(from, to)
       @client.get_with_objects("/v1/partners/coupons.json", 
       	{ :params => { :from => from, :to => to } }, 
-      	Facilethings::CouponsData)
+      	Facilethings::CouponsData, nil)
     end
 
   protected

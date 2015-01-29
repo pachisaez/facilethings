@@ -1,0 +1,5 @@
+[
+{ "coupon": { "code": "FSP-0001", "note": "Pachi", "amount": 1, "discount": 10.0 } },
+{ "coupon": { "code": "FSP-0002", "note": "Rubén", "amount": 1, "discount": 10.0 } },
+{ "coupon": { "code": "FSP-0003", "note": "Mari", "amount": 2, "discount": 15.0 } }
+]

@@ -1,4 +1,6 @@
-[{ "coupon": "FSP-0001", "user": "pachi@mock.com", "currency": "USD", "status": "paid", "income": 35.5, "commission": 8.8, "cleared": 4.2 },
+[
+{ "coupon": "FSP-0001", "user": "pachi@mock.com", "currency": "USD", "status": "paid", "income": 35.5, "commission": 8.8, "cleared": 4.2 },
 { "coupon": "FSP-0002", "user": "ruben@mock.com", "currency": "EUR", "status": "paid", "income": 63.78, "commission": 6.38, "cleared": 0.0 },
 { "coupon": "FSP-0003", "user": "maria@mock.com", "currency": "", "status": "left", "income": 0.0, "commission": 0.0, "cleared": 0.0 },
-{ "coupon": "FSP-0004", "user": "dani@mock.com", "currency": "", "status": "trying", "income": 0.0, "commission": 0.0, "cleared": 0.0 }]
+{ "coupon": "FSP-0004", "user": "dani@mock.com", "currency": "", "status": "trying", "income": 0.0, "commission": 0.0, "cleared": 0.0 }
+]

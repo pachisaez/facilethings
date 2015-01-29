@@ -9,7 +9,7 @@ describe Facilethings::Base do
 		it "should do a POST rest api call if it's a new item" do
       stub_post('/v1/coupons.json')
       	.with(:body => {"coupon"=>{"amount"=>"6", "code"=>"CODE", "discount"=>"20.0", "note"=>"note"}})
-				.to_return(:body => fixture('saved.json'), :headers => {:content_type => 'application/json; charset=utf-8'})			
+				.to_return(:body => fixture('coupon_saved.json'), :headers => {:content_type => 'application/json; charset=utf-8'})			
 			coupon = Facilethings::Coupon.new(@client, { :code => "CODE", :note => "note", 
 				:amount => 6, :discount => 20.0 })
 			coupon.save
@@ -18,7 +18,7 @@ describe Facilethings::Base do
 		it "should update the ID if it's a new item" do
       stub_post('/v1/coupons.json')
       	.with(:body => {"coupon"=>{"amount"=>"6", "code"=>"CODE", "discount"=>"20.0", "note"=>"note"}})
-				.to_return(:body => fixture('saved.json'), :headers => {:content_type => 'application/json; charset=utf-8'})			
+				.to_return(:body => fixture('coupon_saved.json'), :headers => {:content_type => 'application/json; charset=utf-8'})			
 			coupon = Facilethings::Coupon.new(@client, { :code => "CODE", :note => "note", 
 				:amount => 6, :discount => 20.0 })
 			coupon.save
@@ -27,7 +27,7 @@ describe Facilethings::Base do
 		it "should do a PUT rest api call if it's a existing item" do
       stub_put('/v1/coupons/2.json')
       	.with(:body => {"coupon"=>{"id" => "2", "amount"=>"6", "code"=>"CODE", "discount"=>"20.0", "note"=>"note"}})
-				.to_return(:body => fixture('saved.json'), :headers => {:content_type => 'application/json; charset=utf-8'})			
+				.to_return(:body => fixture('coupon_saved.json'), :headers => {:content_type => 'application/json; charset=utf-8'})			
 			coupon = Facilethings::Coupon.new(@client, { :id => 2, :code => "CODE", :note => "note", 
 				:amount => 6, :discount => 20.0 })
 			coupon.save
@@ -38,7 +38,7 @@ describe Facilethings::Base do
 	describe "#destroy" do
 		it "should do a DELETE rest api call" do
       stub_delete('/v1/coupons/2.json')
-				.to_return(:body => fixture('saved.json'), :headers => {:content_type => 'application/json; charset=utf-8'})			
+				.to_return(:body => fixture('coupon_saved.json'), :headers => {:content_type => 'application/json; charset=utf-8'})			
 			coupon = Facilethings::Coupon.new(@client, { :id => 2, :code => "CODE", :note => "note", 
 				:amount => 6, :discount => 20.0 })
 			coupon.destroy
