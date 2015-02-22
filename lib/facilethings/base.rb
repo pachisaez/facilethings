@@ -50,6 +50,25 @@ module Facilethings
           instance_variable_set("@#{key}", value.to_f)
         end
       end
+
+      def attr_integer(*attrs)
+        attrs.each do |attr|
+          define_geti_method(attr)
+          define_seti_method(attr)
+        end
+      end
+
+      def define_getf_method(key)
+        define_method(key) do
+          instance_variable_get("@#{key}").to_i
+        end
+      end
+
+      def define_setf_method(key)
+        define_method("#{key}=") do |value|
+          instance_variable_set("@#{key}", value.to_i)
+        end
+      end
     end
 
     attr_reader :id
