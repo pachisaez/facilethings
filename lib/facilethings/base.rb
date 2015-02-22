@@ -58,13 +58,13 @@ module Facilethings
         end
       end
 
-      def define_getf_method(key)
+      def define_geti_method(key)
         define_method(key) do
           instance_variable_get("@#{key}").to_i
         end
       end
 
-      def define_setf_method(key)
+      def define_seti_method(key)
         define_method("#{key}=") do |value|
           instance_variable_set("@#{key}", value.to_i)
         end
