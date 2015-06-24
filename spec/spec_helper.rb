@@ -1,10 +1,10 @@
 require 'webmock/rspec'
 require 'facilethings'
 
-FT_KEY = "W2hT29H9OE2OjmFFwpAwvnDJGkukRWK2Rqm03CoL"
-FT_SECRET = "h1utdPZWOXlpSvxcWObYhvQNXivudrZXxWAL0xhi"
+FT_KEY = "8b18b0acd6c865598da42da5c81e5cd3e4b77f54d467719bae05ddfda60c984e"
+FT_SECRET = "cde76257d552e464b0d96a30512353e215c7cd7b1043685f87d8570d6f448114"
 FT_ENDPOINT = "http://api.lvh.me:3003"
-MY_ACCESS_TOKEN = "HYzbXFZ0tZWLLoXsPyM2u8FmBfZjwcjH5EpWm1Uh"
+MY_ACCESS_TOKEN = "09b1623682d35ddd225fb9088b28541007928c05a58f7ec11364877faea4780f"
 
 WebMock.disable_net_connect!(:allow => "api.lvh.me")
 
