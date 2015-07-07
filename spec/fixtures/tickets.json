@@ -1,0 +1,14 @@
+[
+{ 
+  "ticket": {
+    "closed_at": null,
+    "created_at": "2015-05-31T18:52:43+02:00",
+    "detail": "prueba ticket",
+    "id": 593,
+    "language": "en",
+    "state": 0,
+    "updated_at": "2015-05-31T18:52:43+02:00",
+    "user_id": 1
+  }
+}
+]
