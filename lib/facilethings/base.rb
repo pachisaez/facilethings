@@ -69,6 +69,13 @@ module Facilethings
           instance_variable_set("@#{key}", value.to_i)
         end
       end
+
+      def attr_object(attr)
+        define_method(attr) do
+          value = instance_variable_get("@#{attr}")
+          eval "Facilethings::#{attr.to_s.capitalize}.new(@client, #{value})"
+        end
+      end
     end
 
     attr_reader :id

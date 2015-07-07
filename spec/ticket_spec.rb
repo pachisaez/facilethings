@@ -8,7 +8,8 @@ describe Facilethings::Ticket do
 	describe "#attr_reader and #attr_accessor" do
 		it "should build get methods for all attributes" do
 			ticket = Facilethings::Ticket.new(@client, { :id => 2, :created_at => DateTime.now,
-				:detail => "detail", :language => "en", :state => 0, :user_id => 1, :closed_at => nil })
+				:detail => "detail", :language => "en", :state => 0, :user_id => 1, :closed_at => nil,
+				:user => Facilethings::User.new(@client) })
 
 			expect(ticket.id).to eq(2)
 			expect(ticket.created_at).to be_a DateTime
@@ -17,6 +18,7 @@ describe Facilethings::Ticket do
 			expect(ticket.state).to eq(0)
 			expect(ticket.user_id).to eq(1)
 			expect(ticket.closed_at).to be_nil
+			#expect(ticket.user).to be_a Facilethings::User
 		end
 		it "should build set methods for accessor attributes" do
 			ticket = Facilethings::Ticket.new(@client)
@@ -27,13 +29,14 @@ describe Facilethings::Ticket do
 			expect(ticket.closed_at).to be_a DateTime
 		end
 		it "should not build set methods for reader attributes" do
-			ticket = Facilethings::Coupon.new(@client)
+			ticket = Facilethings::Ticket.new(@client)
 			
 			expect{ticket.id = 4}.to raise_error
 			expect{ticket.created_at = DateTime.now}.to raise_error
 			expect{ticket.detail = "updated"}.to raise_error
 			expect{ticket.lagunage = "de"}.to raise_error
 			expect{ticket.user_id = 2}.to raise_error
+			expect{ticket.user = Facilethings::User.new(@client)}.to raise_error
 		end
 	end
 

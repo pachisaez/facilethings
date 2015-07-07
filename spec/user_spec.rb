@@ -8,13 +8,16 @@ describe Facilethings::User do
 	describe "#attr_reader" do
 		it "should build get methods for all attributes" do
 			user = Facilethings::User.new(@client, { :id => 1, :language => "es", 
-				:time_zone => "Madrid", :info => "Pachi", :mail => "pachisaez@hotmail.com" })
+				:time_zone => "Madrid", :info => "Pachi", :mail => "pachisaez@hotmail.com",
+				:first_name => "Francisco", :last_name => "Saez" })
 
 			expect(user.id).to eq(1)
 			expect(user.language).to eq("es")
 			expect(user.time_zone).to eq("Madrid")
 			expect(user.info).to eq("Pachi")
 			expect(user.mail).to eq("pachisaez@hotmail.com")
+			expect(user.first_name).to eq("Francisco")
+			expect(user.last_name).to eq("Saez")
 		end
 		it "should not build set methods for reader attributes" do
 			user = Facilethings::User.new(@client)
@@ -24,6 +27,8 @@ describe Facilethings::User do
 			expect{user.time_zone = "Lisboa"}.to raise_error
 			expect{user.info = "Paco"}.to raise_error
 			expect{user.mail = "pachisaez@yahoo.es"}.to raise_error
+			expect{user.first_name = "Fran"}.to raise_error
+			expect{user.last_name = "Saez"}.to raise_error
 		end
 	end
 end
