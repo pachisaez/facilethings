@@ -5,6 +5,7 @@ module Facilethings
     attr_reader :created_at, :user_id, :detail, :language
     attr_accessor :state, :closed_at
     attr_object :user
+    attr_objects :replies, object: "ticket_reply"
 
   protected
   	def resource_path

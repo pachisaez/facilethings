@@ -70,10 +70,23 @@ module Facilethings
         end
       end
 
-      def attr_object(attr)
+      def attr_object(attr, object: nil)
         define_method(attr) do
+          object_name = object.nil? ? attr.to_s : object
           value = instance_variable_get("@#{attr}")
-          eval "Facilethings::#{attr.to_s.capitalize}.new(@client, #{value})"
+          eval "Facilethings::#{object_name.capitalize}.new(@client, #{value})"
+        end
+      end
+
+      def attr_objects(attr, object: nil)
+        define_method(attr) do
+          values = instance_variable_get("@#{attr}")
+          object_name = object.nil? ? attr.to_s : object
+          list = []
+          values.each do |value|
+            list << eval("Facilethings::#{camelize(object_name)}.new(@client, #{value})")
+          end
+          list
         end
       end
     end
@@ -127,6 +140,10 @@ module Facilethings
 
     def rest_path
       id ? resource_path + "/#{id}.json" : resource_path + ".json"
+    end
+
+    def camelize(str)
+      str.split('_').map {|w| w.capitalize}.join
     end
   end
 end

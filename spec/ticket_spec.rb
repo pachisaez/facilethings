@@ -9,7 +9,9 @@ describe Facilethings::Ticket do
 		it "should build get methods for all attributes" do
 			ticket = Facilethings::Ticket.new(@client, { :id => 2, :created_at => DateTime.now,
 				:detail => "detail", :language => "en", :state => 0, :user_id => 1, :closed_at => nil,
-				:user => Facilethings::User.new(@client) })
+				:user => { :id => 1 },
+				:replies => [{ :id => 20, :detail => "reply one", :user_id => 2, :ticket_id => 2 },
+				 						 { :id => 22, :detail => "reply two", :user_id => 1, :ticket_id => 2 }] })
 
 			expect(ticket.id).to eq(2)
 			expect(ticket.created_at).to be_a DateTime
@@ -18,7 +20,9 @@ describe Facilethings::Ticket do
 			expect(ticket.state).to eq(0)
 			expect(ticket.user_id).to eq(1)
 			expect(ticket.closed_at).to be_nil
-			#expect(ticket.user).to be_a Facilethings::User
+			expect(ticket.user).to be_a Facilethings::User
+			expect(ticket.replies.count).to eq(2)
+			expect(ticket.replies[0]).to be_a(Facilethings::TicketReply)
 		end
 		it "should build set methods for accessor attributes" do
 			ticket = Facilethings::Ticket.new(@client)
@@ -34,9 +38,10 @@ describe Facilethings::Ticket do
 			expect{ticket.id = 4}.to raise_error
 			expect{ticket.created_at = DateTime.now}.to raise_error
 			expect{ticket.detail = "updated"}.to raise_error
-			expect{ticket.lagunage = "de"}.to raise_error
+			expect{ticket.language = "de"}.to raise_error
 			expect{ticket.user_id = 2}.to raise_error
 			expect{ticket.user = Facilethings::User.new(@client)}.to raise_error
+			expect{ticket.replies << Facilethings::TicketReply.new(@client)}.to raise_error
 		end
 	end
 

@@ -16,4 +16,16 @@ describe Facilethings::REST::Ticket do
     end
 	end
 
+  describe ".find_ticket" do
+    before do
+      stub_get('/v1/tickets/3001.json').to_return(:body => fixture('ticket.json'), :headers => {:content_type => 'application/json; charset=utf-8'})
+    end
+    it "should return a ticket object" do
+      ticket = @client.find_ticket(3001)
+
+      expect(a_get('/v1/tickets/3001.json')).to have_been_made
+      expect(ticket).to be_a Facilethings::Ticket
+    end
+  end
+
 end
