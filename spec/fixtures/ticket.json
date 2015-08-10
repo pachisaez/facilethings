@@ -12,18 +12,6 @@
       "id": 1,
       "mail": "me@facile.com",
       "language": "en"
-    },
-    "replies": [
-      {
-        "id": 1997,
-        "ticket_id": 593,
-        "detail": "reply one"
-      },
-      {
-        "id": 1998,
-        "ticket_id": 593,
-        "detail": "reply two"
-      }
-    ]
+    }
   }
 }

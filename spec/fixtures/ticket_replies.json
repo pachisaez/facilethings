@@ -1,0 +1,30 @@
+[
+{ 
+  "ticket_reply": {
+    "id": 1234,
+    "created_at": "2015-05-31T18:52:43+02:00",
+    "detail": "reply one",
+    "ticket_id": 593,
+    "user_id": 2,
+    "user": { 
+      "id": 2,
+      "mail": "me@facile.com",
+      "language": "en"
+    }
+  }
+},
+{ 
+  "ticket_reply": {
+    "id": 1235,
+    "created_at": "2015-05-31T19:52:43+02:00",
+    "detail": "reply two",
+    "ticket_id": 593,
+    "user_id": 5,
+    "user": { 
+      "id": 5,
+      "mail": "you@facile.com",
+      "language": "en"
+    }
+  }
+}
+]

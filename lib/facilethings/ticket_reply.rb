@@ -8,7 +8,7 @@ module Facilethings
 
   protected
   	def resource_path
-    	"/#{VERSION_URL}/ticket_replies"
+    	"/#{VERSION_URL}/tickets/#{ticket_id}/ticket_replies"
   	end
 	end
 end
