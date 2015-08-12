@@ -35,7 +35,7 @@ describe Facilethings::User do
 		end
 	end
 
-	describe "#avatar_filename"
+	describe "#avatar_filename" do
 		it "should return the URL for the image if exists" do
 			user = Facilethings::User.new(@client, { :id => 1, 
 				:avatar => { :id => 355, :filename => "avatar.jpg" } })
@@ -45,6 +45,7 @@ describe Facilethings::User do
 		it "should return the default URL if there's no avatar" do
 			user = Facilethings::User.new(@client)
 
-			expect(user.avatar_filename).to eq("https://s3.amazonaws.com/FacileThings/default/thumbnail_thumb.png")
+			expect(user.avatar_filename).to eq("https://s3.amazonaws.com/ft-dev/default/thumbnail_thumb.png")
 		end
+  end
 end

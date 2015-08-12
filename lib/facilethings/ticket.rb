@@ -11,6 +11,11 @@ module Facilethings
         {}, Facilethings::TicketReply, :ticket_reply)
     end
 
+    def files
+      @client.get_with_objects("/v1/tickets/#{id}/ticket_files.json", 
+        {}, Facilethings::TicketFile, :ticket_file)
+    end
+
   protected
   	def resource_path
     	"/#{VERSION_URL}/tickets"

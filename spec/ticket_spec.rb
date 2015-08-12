@@ -54,4 +54,20 @@ describe Facilethings::Ticket do
       expect(replies.count).to eq 2
     end
   end
+
+	describe ".files" do
+    before do
+			@ticket = Facilethings::Ticket.new(@client, { :id => 593, :created_at => DateTime.now,
+				:detail => "detail", :language => "en", :state => 0, :user_id => 1, :closed_at => nil,
+				:user => { :id => 1 } })
+
+      stub_get('/v1/tickets/593/ticket_files.json').to_return(:body => fixture('ticket_files.json'), :headers => {:content_type => 'application/json; charset=utf-8'})
+    end
+    it 'gets the ticket files' do
+      files = @ticket.files
+      expect(a_get('/v1/tickets/593/ticket_files.json')).to have_been_made
+      expect(files.count).to eq 1
+    end
+  end
+
 end
