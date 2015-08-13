@@ -103,7 +103,7 @@ module Facilethings
     end
 
     def save(params=nil)
-      url = params ? rest_path : rest_path+'?'+params
+      url = params ? rest_path+'?'+params : rest_path
       if self.id
         response = @client.put(url, extract_body) 
       else
