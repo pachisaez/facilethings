@@ -8,10 +8,6 @@ module Facilethings
 
     attr_accessor :keep_ticket_open
 
-    def initialize
-    	@keep_ticket_open = false
-    end
-
   protected
   	def resource_path
     	"/#{VERSION_URL}/tickets/#{ticket_id}/ticket_replies"
