@@ -102,11 +102,12 @@ module Facilethings
       end
     end
 
-    def save
+    def save(params=nil)
+      url = params ? rest_path : rest_path+'?'+params
       if self.id
-        response = @client.put(rest_path, extract_body) 
+        response = @client.put(url, extract_body) 
       else
-        response = @client.post(rest_path, extract_body)
+        response = @client.post(url, extract_body)
         unless response[:error]
           @id = response[response.keys[0]][:id]
         end
