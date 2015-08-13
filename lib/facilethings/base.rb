@@ -1,3 +1,4 @@
+require 'active_support/inflector'
 require 'facilethings/error'
 
 module Facilethings
@@ -84,7 +85,7 @@ module Facilethings
           object_name = object.nil? ? attr.to_s : object
           list = []
           values.each do |value|
-            list << eval("Facilethings::#{camelize(object_name)}.new(@client, #{value})")
+            list << eval("Facilethings::#{object_name.camelize}.new(@client, #{value})")
           end
           list
         end
@@ -119,7 +120,7 @@ module Facilethings
 
   protected
     def class_symbol
-      self.class.to_s.split("::")[1].downcase.to_sym
+      self.class.to_s.split("::")[1].underscore.to_sym
     end
 
     def attrs
@@ -142,8 +143,8 @@ module Facilethings
       id ? resource_path + "/#{id}.json" : resource_path + ".json"
     end
 
-    def camelize(str)
-      str.split('_').map {|w| w.capitalize}.join
-    end
+    #def camelize(str)
+    #  str.split('_').map {|w| w.capitalize}.join
+    #end
   end
 end
