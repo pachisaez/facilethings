@@ -93,6 +93,8 @@ module Facilethings
     end
 
     attr_reader :id
+    attr_reader :created_at
+    attr_reader :updated_at
 
     def initialize(client, attrs = {})
       raise Facilethings::Error.new(attrs[:error]) if attrs[:error]
@@ -107,9 +109,12 @@ module Facilethings
         response = @client.put(rest_path, extract_body) 
       else
         response = @client.post(rest_path, extract_body)
-        unless response[:error]
-          @id = response[response.keys[0]][:id]
-        end
+      end
+      unless response[:error]
+        fields = response[response.keys[0]]
+        @id = fields[:id] unless self.id
+        @created_at = DateTime.iso8601(fields[:created_at])
+        @updated_at = DateTime.iso8601(fields[:updated_at])
       end
       response
     end

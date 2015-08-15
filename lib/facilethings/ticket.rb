@@ -2,7 +2,7 @@ require 'facilethings/base'
 
 module Facilethings	
 	class Ticket < Facilethings::Base
-    attr_reader :created_at, :user_id, :detail, :language
+    attr_reader :user_id, :detail, :language
     attr_accessor :state, :closed_at
     attr_object :user
 
