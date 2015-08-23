@@ -7,7 +7,7 @@ describe Facilethings::REST::TicketReply do
 
   describe ".new_ticket" do
     it "should return a new, initialized ticket_reply object" do
-      reply = @client.new_ticket({ :ticket_id => 102, :user_id => 1 })
+      reply = @client.new_ticket_reply({ :ticket_id => 102, :user_id => 1 })
 
       expect(reply).to be_a Facilethings::TicketReply
 			expect(reply.ticket_id).to eq(102)
