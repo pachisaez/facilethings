@@ -36,6 +36,10 @@ module Facilethings
 	        klass.new(self, element)
 	      end
 	    end
+
+      def new_object(klass, params = {})
+        klass.new(self, params)
+      end
     end
   end
 end

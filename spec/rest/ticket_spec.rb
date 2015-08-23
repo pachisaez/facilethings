@@ -27,5 +27,4 @@ describe Facilethings::REST::Ticket do
       expect(ticket).to be_a Facilethings::Ticket
     end
   end
-
 end
