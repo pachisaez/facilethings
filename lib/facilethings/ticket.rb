@@ -16,6 +16,10 @@ module Facilethings
         {}, Facilethings::TicketFile, :ticket_file)
     end
 
+    def close
+      response = @client.put(resource_path + "/#{id}/close.json") 
+    end
+
   protected
   	def resource_path
     	"/#{VERSION_URL}/tickets"
