@@ -17,7 +17,7 @@ module Facilethings
     end
 
     def close
-      response = @client.put(resource_path + "/#{id}/close.json") 
+      @client.put(resource_path + "/#{id}/close.json") 
     end
 
   protected

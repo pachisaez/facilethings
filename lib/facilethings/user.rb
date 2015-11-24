@@ -2,8 +2,10 @@ require 'facilethings/base'
 
 module Facilethings	
 	class User < Facilethings::Base
-    attr_reader :language, :time_zone, :info, :mail, :role
+    attr_reader :info, :time_zone, :role
     attr_reader :first_name, :last_name, :avatar
+    attr_accessor :language, :mail, :password, :password_confirmation
+    attr_accessor :source, :campaign_code
 
     def avatar_filename
  	  	bucket = ENV['RAILS_ENV']=='production' ? "FacileThings" : "ft-dev"
@@ -15,5 +17,11 @@ module Facilethings
 	    	"https://s3.amazonaws.com/#{bucket}/default/thumbnail_thumb.png"
 	    end
     end
+
+  protected
+  	def resource_path
+    	"/#{VERSION_URL}/users"
+  	end
+
 	end
 end
