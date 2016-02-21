@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Facilethings::CouponsData do
 	before(:each) do
-    @client = Facilethings::REST::Client.new(:key => FT_KEY, :secret => FT_SECRET, :token =>  MY_ACCESS_TOKEN)
+    @client = Facilethings::REST::Client.new(:key => FT_KEY, :secret => FT_SECRET, :token =>  MY_ACCESS_TOKEN, :endpoint => FT_ENDPOINT)
 		@data = Facilethings::CouponsData.new(@client, { coupon: "RSPEC45684", user: 24, 
 			status: "paid", currency: "USD", income: 84.0, commission: 8.40, cleared: 0.0 })
 	end

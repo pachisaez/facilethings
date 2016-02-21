@@ -3,7 +3,7 @@ require "oauth2"
 module Facilethings
   class Client
     attr_accessor :key, :secret, :token, :endpoint
-    URL_PREFIX = "http://api.facilethings.com"
+    URL_PREFIX = "https://api.facilethings.com"
 
     def initialize(options = {})
       options.each do |key, value|

@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Facilethings::Stuff do
 	before(:each) do
-    @client = Facilethings::REST::Client.new(:key => FT_KEY, :secret => FT_SECRET, :token =>  MY_ACCESS_TOKEN)
+    @client = Facilethings::REST::Client.new(:key => FT_KEY, :secret => FT_SECRET, :token =>  MY_ACCESS_TOKEN, :endpoint => FT_ENDPOINT)
 	end
 
 	describe "#attr_reader and #attr_accessor" do

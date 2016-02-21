@@ -129,7 +129,7 @@ module Facilethings
     end
 
     def attrs
-      self.instance_variables.reject { |v| v==:@client }
+      self.instance_variables.reject { |v| v==:@client || v==:@id || v==:@created_at || v==:@updated_at }
     end
 
     def extract_body
@@ -137,7 +137,7 @@ module Facilethings
       attrs.each do |attr|
         h[attr.to_s[1..-1].to_sym] = self.instance_variable_get(attr)
       end
-      { :body => { class_symbol => h }}
+      { :body => { class_symbol => h } }
     end
 
     def resource_path

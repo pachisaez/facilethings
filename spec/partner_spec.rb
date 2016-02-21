@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Facilethings::Partner do
 	before(:each) do
-    @client = Facilethings::REST::Client.new(:key => FT_KEY, :secret => FT_SECRET, :token =>  MY_ACCESS_TOKEN)
+    @client = Facilethings::REST::Client.new(:key => FT_KEY, :secret => FT_SECRET, :token =>  MY_ACCESS_TOKEN, :endpoint => FT_ENDPOINT)
 		@partner = Facilethings::Partner.new(@client, { id: 1, individual_coupons: true, group_coupons: true,
 			currency: "EUR", banner_source: "blog", blog_commission: 10, min_discount: 10,
 			max_discount: 40, discount: 10 })

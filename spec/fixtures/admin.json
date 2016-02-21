@@ -1,0 +1,10 @@
+{
+  "admin": {
+    "id": 1,
+    "blog_post": "productivity-rats",
+    "blog_title_en": "Productive rats, don't be that guy!",
+    "blog_title_es": "Ratas productivas, ¡no seas ese tío!",
+    "created_at": "2015-05-31T18:52:43+02:00",
+    "updated_at": "2015-05-31T18:52:43+02:00"
+  }
+}

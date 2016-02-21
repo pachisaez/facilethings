@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Facilethings::TicketFile do
 	before(:each) do
-    @client = Facilethings::REST::Client.new(:key => FT_KEY, :secret => FT_SECRET, :token =>  MY_ACCESS_TOKEN)
+    @client = Facilethings::REST::Client.new(:key => FT_KEY, :secret => FT_SECRET, :token =>  MY_ACCESS_TOKEN, :endpoint => FT_ENDPOINT)
 
 		@file = Facilethings::TicketFile.new(@client, { :id => 6, :ticket_id => 1, 
 			:created_at => DateTime.now, :filename => "sketch.jpg" })

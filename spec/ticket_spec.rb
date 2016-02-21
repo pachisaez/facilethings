@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Facilethings::Ticket do
 	before(:each) do
-    @client = Facilethings::REST::Client.new(:key => FT_KEY, :secret => FT_SECRET, :token =>  MY_ACCESS_TOKEN)
+    @client = Facilethings::REST::Client.new(:key => FT_KEY, :secret => FT_SECRET, :token =>  MY_ACCESS_TOKEN, :endpoint => FT_ENDPOINT)
 	end
 
 	describe "#attr_reader and #attr_accessor" do
@@ -76,7 +76,7 @@ describe Facilethings::Ticket do
 				:detail => "detail", :language => "en", :state => 0, :user_id => 1, :closed_at => nil,
 				:user => { :id => 1 } })
 
-      stub_put('/v1/tickets/593/close.json').with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Authorization'=>'Bearer 09b1623682d35ddd225fb9088b28541007928c05a58f7ec11364877faea4780f', 'Content-Length'=>'0', 'User-Agent'=>'Faraday v0.9.0'}).to_return(:status => 200, :body => fixture('ticket.json'), :headers => {})
+      stub_put('/v1/tickets/593/close.json', false).to_return(:status => 200, :body => fixture('ticket.json'), :headers => {})
     end
     it 'closes the ticket' do
     	@ticket.close
@@ -90,7 +90,7 @@ describe Facilethings::Ticket do
 				:detail => "detail", :language => "en", :state => 0, :user_id => 1, :closed_at => nil,
 				:user => { :id => 1 } })
 
-      stub_delete('/v1/tickets/593.json').with(:headers => {'Accept'=>'*/*', 'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3', 'Authorization'=>'Bearer 09b1623682d35ddd225fb9088b28541007928c05a58f7ec11364877faea4780f', 'User-Agent'=>'Faraday v0.9.0'}).to_return(:status => 200, :body => fixture('ticket.json'), :headers => {})
+      stub_delete('/v1/tickets/593.json').to_return(:status => 200, :body => fixture('ticket.json'), :headers => {})
     end
     it 'closes the ticket' do
     	@ticket.destroy

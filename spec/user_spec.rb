@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Facilethings::User do
 	before(:each) do
-    @client = Facilethings::REST::Client.new(:key => FT_KEY, :secret => FT_SECRET, :token =>  MY_ACCESS_TOKEN)
+    @client = Facilethings::REST::Client.new(:key => FT_KEY, :secret => FT_SECRET, :token =>  MY_ACCESS_TOKEN, :endpoint => FT_ENDPOINT)
 	end
 
 	describe "#attr_reader" do
@@ -25,10 +25,8 @@ describe Facilethings::User do
 			user = Facilethings::User.new(@client)
 			
 			expect{user.id = 2}.to raise_error
-			expect{user.language = "en"}.to raise_error
 			expect{user.time_zone = "Lisboa"}.to raise_error
 			expect{user.info = "Paco"}.to raise_error
-			expect{user.mail = "pachisaez@yahoo.es"}.to raise_error
 			expect{user.first_name = "Fran"}.to raise_error
 			expect{user.last_name = "Saez"}.to raise_error
 			expect{user.avatar = { :id => "2" } }.to raise_error

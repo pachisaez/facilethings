@@ -1,6 +1,7 @@
 require 'facilethings/rest/user'
 require 'facilethings/rest/partner'
 require 'facilethings/rest/coupon'
+require 'facilethings/rest/admin'
 
 require 'facilethings/rest/ticket'
 require 'facilethings/rest/ticket_reply'
@@ -14,6 +15,8 @@ module Facilethings
       include Facilethings::REST::User
       include Facilethings::REST::Partner
       include Facilethings::REST::Coupon
+      include Facilethings::REST::Admin
+      
       include Facilethings::REST::Ticket
       include Facilethings::REST::TicketReply
 

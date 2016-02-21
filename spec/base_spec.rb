@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe Facilethings::Base do
 	before(:each) do
-    @client = Facilethings::REST::Client.new(:key => FT_KEY, :secret => FT_SECRET, :token =>  MY_ACCESS_TOKEN)
+    @client = Facilethings::REST::Client.new(:key => FT_KEY, :secret => FT_SECRET, :token =>  MY_ACCESS_TOKEN, :endpoint => FT_ENDPOINT)
 	end
 
 	describe "#save" do
@@ -26,7 +26,7 @@ describe Facilethings::Base do
 		end
 		it "should do a PUT rest api call if it's a existing item" do
       stub_put('/v1/coupons/2.json')
-      	.with(:body => {"coupon"=>{"id" => "2", "amount"=>"6", "code"=>"CODE", "discount"=>"20.0", "note"=>"note"}})
+      	.with(:body => {"coupon" => { "amount"=>"6", "code"=>"CODE", "discount"=>"20.0", "note"=>"note"} })
 				.to_return(:body => fixture('coupon_saved.json'), :headers => {:content_type => 'application/json; charset=utf-8'})			
 			coupon = Facilethings::Coupon.new(@client, { :id => 2, :code => "CODE", :note => "note", 
 				:amount => 6, :discount => 20.0 })
@@ -60,12 +60,12 @@ describe Facilethings::Base do
 	end
 
 	describe "#extract_body" do
-		it "should return a proper Hash body with all the attributes" do
+		it "should return a proper Hash body with all the attributes except id, created_at and updated_at" do
 			coupon = Facilethings::Coupon.new(@client, { :id => 2, :created_at => "today",
 				:code => "CODE", :note => "note", :amount => 6, :discount => 20.0 })
 			body = coupon.send(:extract_body)
 			expect(body).to match({ :body => { :coupon => 
-				{ :id=>2, :created_at=>"today", :code=>"CODE", :note=>"note", :amount=>6, :discount=>20.0 }}})
+				{ :code=>"CODE", :note=>"note", :amount=>6, :discount=>20.0 }}})
 		end
 	end
 

@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
   s.version     = Facilethings::VERSION
   s.authors     = ["Francisco Sáez"]
   s.email       = ["francisco.saez@facilethings.com"]
-  s.homepage    = "http://facilethings.com"
+  s.homepage    = "https://facilethings.com"
   s.summary     = "FacileThings API Wrap"
   s.description = "FacileThings API Wrap"
 
