@@ -17,4 +17,16 @@ describe Facilethings::REST::User do
 	  end
 	end
 
+  describe ".find_user_by_email" do
+    before do
+      stub_get('/v1/users/me.json?email=pachisaez@hotmail.com').to_return(:body => fixture('user.json'), :headers => {:content_type => 'application/json; charset=utf-8'})
+    end
+    it 'requests the correct resource' do
+      user = @client.find_user_by_email("pachisaez@hotmail.com")
+      expect(a_get('/v1/users/me.json?email=pachisaez@hotmail.com')).to have_been_made
+      expect(user).to be_a Facilethings::User
+      expect(user.id).to eq 1
+    end
+  end
+
 end
