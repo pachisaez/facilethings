@@ -35,6 +35,11 @@ module Facilethings
         {}, Facilethings::CohortEvent, :cohort_event)
     end
 
+    def send_confirm
+      result = @client.get("#{resource_path}/#{self.id}/send_confirm.json")
+      result[:ok]
+    end
+
   protected
   	def resource_path
     	"/#{VERSION_URL}/users"

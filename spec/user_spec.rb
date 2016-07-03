@@ -86,4 +86,16 @@ describe Facilethings::User do
     end
   end
 
+	describe ".send_confirm" do
+    before do
+			@user = Facilethings::User.new(@client, { :id => 1 }) 
+      stub_get("/v1/users/#{@user.id}/send_confirm.json").to_return(:body => fixture('ok.json'), :headers => {:content_type => 'application/json; charset=utf-8'})
+    end
+    it 'requests the correct resource' do
+      result = @user.send_confirm
+      expect(a_get("/v1/users/#{@user.id}/send_confirm.json")).to have_been_made
+      expect(result).to eq(true)
+    end
+  end
+
 end
