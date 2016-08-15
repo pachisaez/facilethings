@@ -40,6 +40,16 @@ module Facilethings
       result[:ok]
     end
 
+    def cancel
+      result = @client.put(resource_path + "/#{id}/cancel.json") 
+      result[:ok]
+    end
+
+    def activate
+      result = @client.put(resource_path + "/#{id}/activate.json") 
+      result[:ok]
+    end
+
   protected
   	def resource_path
     	"/#{VERSION_URL}/users"

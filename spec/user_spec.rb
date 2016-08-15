@@ -98,4 +98,28 @@ describe Facilethings::User do
     end
   end
 
+  describe ".cancel" do
+    before do
+			@user = Facilethings::User.new(@client, { :id => 1 }) 
+      stub_put('/v1/users/1/cancel.json', false).to_return(:status => 200, :body => fixture('ok.json'), :headers => {})
+    end
+    it 'cancel the account' do
+    	result = @user.cancel
+      expect(a_put('/v1/users/1/cancel.json')).to have_been_made
+      expect(result).to eq(true)
+    end
+  end
+
+  describe ".activate" do
+    before do
+			@user = Facilethings::User.new(@client, { :id => 1 }) 
+      stub_put('/v1/users/1/activate.json', false).to_return(:status => 200, :body => fixture('ok.json'), :headers => {})
+    end
+    it 'activate the account' do
+    	result = @user.activate
+      expect(a_put('/v1/users/1/activate.json')).to have_been_made
+      expect(result).to eq(true)
+    end
+  end
+
 end
