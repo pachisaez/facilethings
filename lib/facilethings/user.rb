@@ -41,12 +41,14 @@ module Facilethings
     end
 
     def cancel
-      result = @client.put(resource_path + "/#{id}/cancel.json") 
+      result = @client.put(resource_path + "/#{id}/cancel.json")
+      self.active = false if result[:ok]
       result[:ok]
     end
 
     def activate
       result = @client.put(resource_path + "/#{id}/activate.json") 
+      self.active = true if result[:ok]
       result[:ok]
     end
 
