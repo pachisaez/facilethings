@@ -1,0 +1,7 @@
+[
+	{ "user": {"id":1,"language":"en","time_zone":"London"} },
+	{ "user": {"id":2,"language":"es","time_zone":"Madrid"} },
+	{ "user": {"id":3,"language":"en","time_zone":"London"} },	
+	{ "user": {"id":4,"language":"es","time_zone":"Madrid"} },
+	{ "user": {"id":5,"language":"en","time_zone":"Paris"} }	
+]

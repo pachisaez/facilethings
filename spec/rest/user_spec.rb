@@ -29,4 +29,20 @@ describe Facilethings::REST::User do
     end
   end
 
+  describe ".find_users" do
+    it 'requests the correct resource' do
+      stub_get('/v1/users/all.json').to_return(:body => fixture('users.json'), :headers => {:content_type => 'application/json; charset=utf-8'})
+      users = @client.find_users
+      expect(a_get('/v1/users/all.json')).to have_been_made
+      expect(users).to be_a Array
+      expect(users.count).to eq 5
+      expect(users[0]).to be_a Facilethings::User
+    end    
+    it 'requests the correct resource, with conditions' do
+      stub_get("/v1/users/all.json?active=true&notifications=true").to_return(:body => fixture('users.json'), :headers => {:content_type => 'application/json; charset=utf-8'})
+      users = @client.find_users("active=true&notifications=true")
+      expect(a_get("/v1/users/all.json?active=true&notifications=true")).to have_been_made
+    end    
+  end
+
 end

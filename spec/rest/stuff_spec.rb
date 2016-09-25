@@ -27,4 +27,17 @@ describe Facilethings::REST::Stuff do
     end
   end
 
+  describe ".search_stuff" do
+    before do
+      stub_get("/v1/stuff/search.json?user_id=1&state=0&conditions=reminder<'2017-10-01'").to_return(:body => fixture('stuff_list.json'), :headers => {:content_type => 'application/json; charset=utf-8'})
+    end
+    it 'requests the correct resource' do
+      stuff = @client.search_stuff(1, 0, "reminder<'2017-10-01'")
+      expect(a_get("/v1/stuff/search.json?user_id=1&state=0&conditions=reminder<'2017-10-01'")).to have_been_made
+      expect(stuff).to be_a Array
+      expect(stuff.count).to eq 2
+      expect(stuff[0]).to be_a Facilethings::Stuff
+    end    
+  end
+
 end
