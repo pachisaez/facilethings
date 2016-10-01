@@ -12,7 +12,7 @@ module Facilethings
       end
 
       def find_users(conditions=nil)
-        get_with_objects("/v1/users/all.json?#{conditions}", Facilethings::User, :user)
+        get_with_objects("/v1/users/all.json?#{conditions}", {}, Facilethings::User, :user)
       end
     end
   end

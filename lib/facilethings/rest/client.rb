@@ -24,6 +24,7 @@ module Facilethings
 
 	    def get_with_object(url, options = {}, klass, object)
         element = get(url, options)
+        #puts element[object].inspect
         element = element[object] if object and not element[:error]
 	      klass.new(self, element)
 	    end
@@ -31,7 +32,7 @@ module Facilethings
 	    def get_with_objects(url, options = {}, klass, object)
 	    	data = get(url, options)
 	      data.collect do |element|
-          puts element.inspect
+          #puts element[object].inspect
           element = element[object] if object and not element[:error]
 	        klass.new(self, element)
 	      end
