@@ -95,7 +95,11 @@ module Facilethings
         define_method(attr) do
           object_name = object.nil? ? attr.to_s : object
           value = instance_variable_get("@#{attr}")
-          eval "Facilethings::#{object_name.capitalize}.new(@client, #{value})"
+          if value
+            eval "Facilethings::#{object_name.capitalize}.new(@client, #{value})"
+          else
+            nil
+          end
         end
       end
 
@@ -104,8 +108,10 @@ module Facilethings
           values = instance_variable_get("@#{attr}")
           object_name = object.nil? ? attr.to_s.singularize : object
           list = []
-          values.each do |value|
-            list << eval("Facilethings::#{object_name.capitalize}.new(@client, #{value})")
+          if values
+            values.each do |value|
+              list << eval("Facilethings::#{object_name.capitalize}.new(@client, #{value})")
+            end
           end
           list
         end

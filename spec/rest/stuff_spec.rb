@@ -45,9 +45,14 @@ describe Facilethings::REST::Stuff do
       expect(st.project).to be_a Facilethings::Project
       expect(st.project.name).to eq "project 34"
       expect(st.checkpoints).to be_a Array
+      expect(st.checkpoints.count).to eq 2
 
       cp = st.checkpoints[0]
       expect(cp.description).to eq "kitchen"
+
+      st = stuff[1]
+      expect(st.checkpoints.count).to eq 0
+      expect(st.project).to be_nil
     end    
   end
 
