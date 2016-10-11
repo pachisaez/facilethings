@@ -1,4 +1,5 @@
 require 'active_support/inflector'
+require 'active_support/time'
 require 'facilethings/error'
 
 module Facilethings
@@ -71,6 +72,25 @@ module Facilethings
         end
       end
 
+      def attr_datetime(*attrs)
+        attrs.each do |attr|
+          define_gett_method(attr)
+          define_sett_method(attr)
+        end
+      end
+
+      def define_gett_method(key)
+        define_method(key) do
+          instance_variable_get("@#{key}").to_datetime
+        end
+      end
+
+      def define_sett_method(key)
+        define_method("#{key}=") do |value|
+          instance_variable_set("@#{key}", value.to_datetime)
+        end
+      end
+
       def attr_object(attr, object: nil)
         define_method(attr) do
           object_name = object.nil? ? attr.to_s : object
@@ -82,10 +102,10 @@ module Facilethings
       def attr_objects(attr, object: nil)
         define_method(attr) do
           values = instance_variable_get("@#{attr}")
-          object_name = object.nil? ? attr.to_s : object
+          object_name = object.nil? ? attr.to_s.singularize : object
           list = []
           values.each do |value|
-            list << eval("Facilethings::#{object_name.camelize}.new(@client, #{value})")
+            list << eval("Facilethings::#{object_name.capitalize}.new(@client, #{value})")
           end
           list
         end

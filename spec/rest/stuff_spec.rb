@@ -34,9 +34,20 @@ describe Facilethings::REST::Stuff do
     it 'requests the correct resource' do
       stuff = @client.search_stuff(1, 0, "reminder<'2017-10-01'")
       expect(a_get("/v1/stuff/search.json?user_id=1&state=0&conditions=reminder<'2017-10-01'")).to have_been_made
+
       expect(stuff).to be_a Array
       expect(stuff.count).to eq 2
-      expect(stuff[0]).to be_a Facilethings::Stuff
+
+      st = stuff[0]
+
+      expect(st).to be_a Facilethings::Stuff
+      expect(st.reminder).to be_a DateTime
+      expect(st.project).to be_a Facilethings::Project
+      expect(st.project.name).to eq "project 34"
+      expect(st.checkpoints).to be_a Array
+
+      cp = st.checkpoints[0]
+      expect(cp.description).to eq "kitchen"
     end    
   end
 

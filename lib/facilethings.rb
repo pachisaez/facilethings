@@ -11,6 +11,8 @@ require 'facilethings/admin'
 
 require 'facilethings/stuff'
 require 'facilethings/person'
+require 'facilethings/project'
+require 'facilethings/checkpoint'
 
 
 
