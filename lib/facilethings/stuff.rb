@@ -7,6 +7,7 @@ module Facilethings
     	:goal_id, :area_id
 	  attr_datetime :reminder, :actioned_at, :done_at, :start_at
     attr_object :project
+    attr_object :person
     attr_objects :checkpoints
 
   protected
