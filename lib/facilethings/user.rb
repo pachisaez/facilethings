@@ -1,6 +1,7 @@
 require 'facilethings/base'
 require 'facilethings/users/billing_info'
 require 'facilethings/users/usage_info'
+require 'facilethings/users/weekly_info'
 
 module Facilethings	
 	class User < Facilethings::Base
@@ -28,6 +29,11 @@ module Facilethings
     def usage_info
       @client.get_with_object("#{resource_path}/#{self.id}/usage.json", 
         {}, Facilethings::UsageInfo, nil)
+    end
+
+    def weekly_info
+      @client.get_with_object("#{resource_path}/#{self.id}/weekly_info.json", 
+        {}, Facilethings::WeeklyInfo, nil)
     end
 
     def events

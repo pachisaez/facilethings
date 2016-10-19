@@ -1,0 +1,42 @@
+{
+  "ok": true,
+  "goal_worked_the_most": "Educate on GTD and personal productivity",
+  "area_worked_the_most": "CEO",
+  "goals": [
+    {
+      "id": 638,
+      "name": "Aveces",
+      "description": "",
+      "created_at": "2015-04-15T15:45:58+01:00",
+      "updated_at": "2016-10-18T17:22:36+01:00",
+      "due_at": "2016-06-17",
+      "measurement": null,
+      "user_id": 1,
+      "vision_id": null,
+      "achieved_at": "2016-10-18T17:22:36+01:00",
+      "usn": 12237
+    },
+    {
+      "id": 629,
+      "name": "B",
+      "description": "",
+      "created_at": "2015-02-02T18:55:13+00:00",
+      "updated_at": "2016-10-19T09:21:26+01:00",
+      "due_at": null,
+      "measurement": null,
+      "user_id": 1,
+      "vision_id": null,
+      "achieved_at": "2016-10-19T09:21:26+01:00",
+      "usn": 12238
+    }
+  ],
+  "completed_projects": 2,
+  "collected_stuff": 18,
+  "prev_collected_stuff": 10,
+  "processed_stuff": "59.09",
+  "prev_processed_stuff": null,
+  "done_stuff": 7,
+  "prev_done_stuff": 0,
+  "time_stuff": "137.650427533579",
+  "prev_time_stuff": null
+}

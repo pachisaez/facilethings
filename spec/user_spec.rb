@@ -74,6 +74,20 @@ describe Facilethings::User do
     end
   end
 
+  describe ".weekly_info" do
+    before do
+      @user = Facilethings::User.new(@client, { :id => 1 }) 
+      stub_get("/v1/users/#{@user.id}/weekly_info.json").to_return(:body => fixture('weekly_info.json'), :headers => {:content_type => 'application/json; charset=utf-8'})
+    end
+    it 'requests the correct resource' do
+      info = @user.weekly_info
+      expect(a_get("/v1/users/#{@user.id}/weekly_info.json")).to have_been_made
+      expect(info.collected_stuff).to eq 18
+      expect(info.done_stuff).to eq 7
+      expect(info.goals.count).to eq 2
+    end
+  end
+
 	describe ".events" do
     before do
 			@user = Facilethings::User.new(@client, { :id => 1 }) 

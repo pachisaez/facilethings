@@ -13,6 +13,7 @@ require 'facilethings/stuff'
 require 'facilethings/person'
 require 'facilethings/project'
 require 'facilethings/checkpoint'
+require 'facilethings/goal'
 
 
 
