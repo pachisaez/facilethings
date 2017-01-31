@@ -5,11 +5,6 @@ module Facilethings
     attr_reader :cohort_item_id, :checked, :currency
     attr_float :revenue
     attr_object :event
-
-  protected
-  	def resource_path
-    	"/#{VERSION_URL}/cohort_events"
-  	end
 	end
 
 end

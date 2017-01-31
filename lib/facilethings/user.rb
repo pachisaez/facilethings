@@ -1,5 +1,4 @@
 require 'facilethings/base'
-require 'facilethings/users/billing_info'
 require 'facilethings/users/usage_info'
 require 'facilethings/users/weekly_info'
 
@@ -9,6 +8,8 @@ module Facilethings
     attr_reader :first_name, :last_name, :avatar
     attr_accessor :language, :mail, :password, :password_confirmation
     attr_accessor :source, :campaign_code, :active
+    attr_datetime :next_payment
+    attr_accessor :automated_billing
 
     def avatar_filename
  	  	bucket = ENV['RAILS_ENV']=='production' ? "FacileThings" : "ft-dev"
@@ -21,9 +22,9 @@ module Facilethings
 	    end
     end
 
-    def billing_info
-      @client.get_with_object("#{resource_path}/#{self.id}/billing.json", 
-        {}, Facilethings::BillingInfo, nil)
+    def cohort_item
+      @client.get_with_object("#{resource_path}/#{self.id}/cohort_item.json", 
+        {}, Facilethings::CohortItem, :cohort_item)
     end
 
     def usage_info

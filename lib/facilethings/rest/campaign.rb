@@ -1,4 +1,4 @@
-require 'facilethings/coupon'
+require 'facilethings/campaign'
 
 module Facilethings
   module REST

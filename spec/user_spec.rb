@@ -7,9 +7,11 @@ describe Facilethings::User do
 
 	describe "#attr_reader" do
 		it "should build get methods for all attributes" do
+      next_payment = DateTime.now+30.days
 			user = Facilethings::User.new(@client, { :id => 1, :language => "es", 
 				:time_zone => "Madrid", :info => "Pachi", :mail => "pachisaez@hotmail.com",
 				:first_name => "Francisco", :last_name => "Saez", :active => true,
+        :next_payment => next_payment, :automated_billing => false,
 				:avatar => { :id => 355, :filename => "avatar.jpg" } })
 
 			expect(user.id).to eq(1)
@@ -20,6 +22,8 @@ describe Facilethings::User do
 			expect(user.first_name).to eq("Francisco")
 			expect(user.last_name).to eq("Saez")
 			expect(user.active).to eq(true)
+      expect(user.next_payment).to eq(next_payment)
+      expect(user.automated_billing).to eq(false)
 			expect(user.avatar).to eq({ :id => 355, :filename => "avatar.jpg" })
 		end
 		it "should not build set methods for reader attributes" do
@@ -48,16 +52,20 @@ describe Facilethings::User do
 		end
   end
 
-	describe ".billing_info" do
+  describe ".cohort_item" do
     before do
-			@user = Facilethings::User.new(@client, { :id => 1 }) 
-      stub_get("/v1/users/#{@user.id}/billing.json").to_return(:body => fixture('billing_info.json'), :headers => {:content_type => 'application/json; charset=utf-8'})
+      @user = Facilethings::User.new(@client, { :id => 1 }) 
+      stub_get("/v1/users/#{@user.id}/cohort_item.json").to_return(:body => fixture('cohort_item.json'), :headers => {:content_type => 'application/json; charset=utf-8'})
     end
     it 'requests the correct resource' do
-      info = @user.billing_info
-      expect(a_get("/v1/users/#{@user.id}/billing.json")).to have_been_made
-      expect(info.subscription).to eq "ST-EUR-12"
-      expect(info.ltv_eur).to eq 52.10
+      ci = @user.cohort_item
+      expect(a_get("/v1/users/#{@user.id}/cohort_item.json")).to have_been_made
+      expect(ci).to be_a Facilethings::CohortItem
+      expect(ci.user_id).to eq 1
+      expect(ci.cohort_id).to eq 1
+      expect(ci.id).to eq 325
+      expect(ci.campaign.id).to eq 8
+      expect(ci.coupon).to eq nil
     end
   end
 

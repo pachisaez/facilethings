@@ -3,6 +3,7 @@ require 'facilethings/rest/partner'
 require 'facilethings/rest/coupon'
 require 'facilethings/rest/admin'
 require 'facilethings/rest/campaign'
+require 'facilethings/rest/subscription'
 
 require 'facilethings/rest/ticket'
 require 'facilethings/rest/ticket_reply'
@@ -18,6 +19,7 @@ module Facilethings
       include Facilethings::REST::Coupon
       include Facilethings::REST::Admin
       include Facilethings::REST::Campaign
+      include Facilethings::REST::Subscription
       
       include Facilethings::REST::Ticket
       include Facilethings::REST::TicketReply

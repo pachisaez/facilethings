@@ -1,0 +1,7 @@
+{ 
+	"subscription": {
+		"code": "standard", 
+		"description_es": "Estándar", 
+		"description_en": "Standard"
+	} 
+}
