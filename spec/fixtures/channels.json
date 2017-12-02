@@ -1,0 +1,32 @@
+[
+  {
+    "gcal_config": {
+      "calendar": "Personal",
+      "calendar_id": "facilethings1@gmail.com",
+      "channel": null,
+      "channel_expiration": null,
+      "created_at": "2017-11-13T16:08:38+01:00",
+      "gcal_connection_id": 132,
+      "id": 40,
+      "resource_id": null,
+      "sync_token": null,
+      "tag_id": null,
+      "updated_at": "2017-11-14T18:59:38+01:00"
+    }
+  },
+  {
+    "gcal_config": {
+      "calendar": "Personal",
+      "calendar_id": "facilethings1@gmail.com",
+      "channel": "ft-151",
+      "channel_expiration": "2018-01-01T19:15:17+01:00",
+      "created_at": "2017-12-02T18:52:57+01:00",
+      "gcal_connection_id": 133,
+      "id": 44,
+      "resource_id": "Uv-E7Ewv-8iTCxZPO2n9XldG93Y",
+      "sync_token": null,
+      "tag_id": null,
+      "updated_at": "2017-12-02T19:15:19+01:00"
+    }
+  }
+]
