@@ -44,7 +44,7 @@ describe Facilethings::Subscription do
 		it "should not build set methods for reader attributes" do
 			subscription = Facilethings::Campaign.new(@client)
 			
-			expect{subscription.id = 4}.to raise_error
+			expect{subscription.id = 4}.to raise_error(NoMethodError)
 		end
 	end
 

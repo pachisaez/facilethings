@@ -22,11 +22,11 @@ describe Facilethings::CohortItem do
 		it "should not build set methods for reader attributes" do
 			item = Facilethings::CohortItem.new(@client)
 			
-			expect{item.id = 4}.to raise_error
-			expect{item.created_at = DateTime.now}.to raise_error
-			expect{item.cohort_id = 1}.to raise_error
-			expect{item.user_id = 4}.to raise_error
-			expect{item.source = "hola"}.to raise_error
+			expect{item.id = 4}.to raise_error(NoMethodError)
+			expect{item.created_at = DateTime.now}.to raise_error(NoMethodError)
+			expect{item.cohort_id = 1}.to raise_error(NoMethodError)
+			expect{item.user_id = 4}.to raise_error(NoMethodError)
+			expect{item.source = "hola"}.to raise_error(NoMethodError)
 		end
 	end
 

@@ -25,14 +25,14 @@ describe Facilethings::Partner do
 			expect(@partner.discount).to eq(20.0)
 		end
 		it "should not build set methods for reader attributes" do			
-			expect{@partner.id = 2}.to raise_error
-			expect{@partner.individual_coupons = false}.to raise_error
-			expect{@partner.group_coupons = false}.to raise_error
-			expect{@partner.currency = "USD"}.to raise_error
-			expect{@partner.banner_source = "ftblog"}.to raise_error
-			expect{@partner.blog_commission = 12}.to raise_error
-			expect{@partner.min_discount = 12}.to raise_error
-			expect{@partner.max_discount = 12}.to raise_error
+			expect{@partner.id = 2}.to raise_error(NoMethodError)
+			expect{@partner.individual_coupons = false}.to raise_error(NoMethodError)
+			expect{@partner.group_coupons = false}.to raise_error(NoMethodError)
+			expect{@partner.currency = "USD"}.to raise_error(NoMethodError)
+			expect{@partner.banner_source = "ftblog"}.to raise_error(NoMethodError)
+			expect{@partner.blog_commission = 12}.to raise_error(NoMethodError)
+			expect{@partner.min_discount = 12}.to raise_error(NoMethodError)
+			expect{@partner.max_discount = 12}.to raise_error(NoMethodError)
 		end
 	end
 

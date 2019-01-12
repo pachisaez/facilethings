@@ -21,15 +21,14 @@ describe Facilethings::CohortEvent do
 			expect(event.event.name).to eq "pay"
 		end
 		it "should not build set methods for reader attributes" do
-			coupon = Facilethings::CohortEvent.new(@client)
+			event = Facilethings::CohortEvent.new(@client)
 			
-			expect{event.id = 4}.to raise_error
-			expect{event.created_at = DateTime.now}.to raise_error
-			expect{event.cohort_item_id = 1}.to raise_error
-			expect{event.revenue = 36.0}.to raise_error
-			expect{event.checked = true}.to raise_error
-			expect{event.event_id = 4}.to raise_error
-			expect{event.currency = "EUR"}.to raise_error
+			expect{event.id = 4}.to raise_error(NoMethodError)
+			expect{event.created_at = DateTime.now}.to raise_error(NoMethodError)
+			expect{event.cohort_item_id = 1}.to raise_error(NoMethodError)
+			expect{event.checked = true}.to raise_error(NoMethodError)
+			expect{event.event_id = 4}.to raise_error(NoMethodError)
+			expect{event.currency = "EUR"}.to raise_error(NoMethodError)
 		end
 	end
 

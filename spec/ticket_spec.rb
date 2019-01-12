@@ -31,12 +31,12 @@ describe Facilethings::Ticket do
 		it "should not build set methods for reader attributes" do
 			ticket = Facilethings::Ticket.new(@client)
 			
-			expect{ticket.id = 4}.to raise_error
-			expect{ticket.created_at = DateTime.now}.to raise_error
-			expect{ticket.detail = "updated"}.to raise_error
-			expect{ticket.language = "de"}.to raise_error
-			expect{ticket.user_id = 2}.to raise_error
-			expect{ticket.user = Facilethings::User.new(@client)}.to raise_error
+			expect{ticket.id = 4}.to raise_error(NoMethodError)
+			expect{ticket.created_at = DateTime.now}.to raise_error(NoMethodError)
+			expect{ticket.detail = "updated"}.to raise_error(NoMethodError)
+			expect{ticket.language = "de"}.to raise_error(NoMethodError)
+			expect{ticket.user_id = 2}.to raise_error(NoMethodError)
+			expect{ticket.user = Facilethings::User.new(@client)}.to raise_error(NoMethodError)
 		end
 	end
 

@@ -29,8 +29,8 @@ describe Facilethings::Stuff do
 		it "should not build set methods for reader attributes" do
 			stuff = Facilethings::Stuff.new(@client)
 			
-			expect{stuff.id = 4}.to raise_error
-			expect{stuff.created_at = DateTime.now}.to raise_error
+			expect{stuff.id = 4}.to raise_error(NoMethodError)
+			expect{stuff.created_at = DateTime.now}.to raise_error(NoMethodError)
 		end
 	end
 

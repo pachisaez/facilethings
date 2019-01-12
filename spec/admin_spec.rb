@@ -28,7 +28,7 @@ describe Facilethings::Admin do
 		it "should not build set methods for reader attributes" do
 			admin = Facilethings::Admin.new(@client)
 			
-			expect{admin.id = 4}.to raise_error
+			expect{admin.id = 4}.to raise_error(NoMethodError)
 		end
 	end
   

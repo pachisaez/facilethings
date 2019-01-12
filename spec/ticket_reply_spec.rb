@@ -26,10 +26,10 @@ describe Facilethings::TicketReply do
 		it "should not build set methods for reader attributes" do
 			reply = Facilethings::TicketReply.new(@client)
 			
-			expect{reply.id = 4}.to raise_error
-			expect{reply.created_at = DateTime.now}.to raise_error
-			expect{reply.user_id = 2}.to raise_error
-			expect{reply.user = Facilethings::User.new(@client)}.to raise_error
+			expect{reply.id = 4}.to raise_error(NoMethodError)
+			expect{reply.created_at = DateTime.now}.to raise_error(NoMethodError)
+			expect{reply.user_id = 2}.to raise_error(NoMethodError)
+			expect{reply.user = Facilethings::User.new(@client)}.to raise_error(NoMethodError)
 		end
 	end
 

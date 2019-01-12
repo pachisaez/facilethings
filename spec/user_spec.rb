@@ -29,12 +29,12 @@ describe Facilethings::User do
 		it "should not build set methods for reader attributes" do
 			user = Facilethings::User.new(@client)
 			
-			expect{user.id = 2}.to raise_error
-			expect{user.time_zone = "Lisboa"}.to raise_error
-			expect{user.info = "Paco"}.to raise_error
-			expect{user.first_name = "Fran"}.to raise_error
-			expect{user.last_name = "Saez"}.to raise_error
-			expect{user.avatar = { :id => "2" } }.to raise_error
+			expect{user.id = 2}.to raise_error(NoMethodError)
+			expect{user.time_zone = "Lisboa"}.to raise_error(NoMethodError)
+			expect{user.info = "Paco"}.to raise_error(NoMethodError)
+			expect{user.first_name = "Fran"}.to raise_error(NoMethodError)
+			expect{user.last_name = "Saez"}.to raise_error(NoMethodError)
+			expect{user.avatar = { :id => "2" } }.to raise_error(NoMethodError)
 		end
 	end
 

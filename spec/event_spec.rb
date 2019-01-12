@@ -18,10 +18,10 @@ describe Facilethings::Event do
 		it "should not build set methods for reader attributes" do
 			event = Facilethings::Event.new(@client)
 			
-			expect{event.id = 4}.to raise_error
-			expect{event.created_at = DateTime.now}.to raise_error
-			expect{event.name = "pay"}.to raise_error
-			expect{event.description = "client"}.to raise_error
+			expect{event.id = 4}.to raise_error(NoMethodError)
+			expect{event.created_at = DateTime.now}.to raise_error(NoMethodError)
+			expect{event.name = "pay"}.to raise_error(NoMethodError)
+			expect{event.description = "client"}.to raise_error(NoMethodError)
 		end
 	end
 

@@ -1,1 +1,1 @@
-rvm --create use 2.2.4@gem
+rvm --create use 2.4.5@ft-gem

@@ -24,8 +24,8 @@ describe Facilethings::Person do
 		it "should not build set methods for reader attributes" do
 			person = Facilethings::Person.new(@client)
 			
-			expect{person.id = 4}.to raise_error
-			expect{person.statu = 1}.to raise_error
+			expect{person.id = 4}.to raise_error(NoMethodError)
+			expect{person.status = 1}.to raise_error(NoMethodError)
 		end
 	end
 

@@ -32,7 +32,7 @@ describe Facilethings::Campaign do
 		it "should not build set methods for reader attributes" do
 			campaign = Facilethings::Campaign.new(@client)
 			
-			expect{campaign.id = 4}.to raise_error
+			expect{campaign.id = 4}.to raise_error(NoMethodError)
 		end
 	end
 

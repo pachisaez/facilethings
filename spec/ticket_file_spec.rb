@@ -16,10 +16,10 @@ describe Facilethings::TicketFile do
 			expect(@file.ticket_id).to eq(1)
 		end
 		it "should not build set methods for reader attributes" do
-			expect{@file.id = 4}.to raise_error
-			expect{@file.created_at = DateTime.now}.to raise_error
-			expect{@file.filename = "other.png"}.to raise_error
-			expect{@file.ticket_id = 2}.to raise_error
+			expect{@file.id = 4}.to raise_error(NoMethodError)
+			expect{@file.created_at = DateTime.now}.to raise_error(NoMethodError)
+			expect{@file.filename = "other.png"}.to raise_error(NoMethodError)
+			expect{@file.ticket_id = 2}.to raise_error(NoMethodError)
 		end
 	end
 
