@@ -1,6 +1,7 @@
 require 'facilethings/rest/client'
 require 'facilethings/user'
 require 'facilethings/event'
+require 'facilethings/payment'
 require 'facilethings/cohort_event'
 require 'facilethings/cohort_item'
 require 'facilethings/partner'

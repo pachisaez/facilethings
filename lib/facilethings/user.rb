@@ -42,6 +42,11 @@ module Facilethings
         {}, Facilethings::CohortEvent, :cohort_event)
     end
 
+    def payments
+      @client.get_with_objects("#{resource_path}/#{self.id}/payments.json", 
+        {}, Facilethings::Payment, :payment)
+    end
+
     def send_confirm
       result = @client.get("#{resource_path}/#{self.id}/send_confirm.json")
       result[:ok]
