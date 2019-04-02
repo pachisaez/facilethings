@@ -137,13 +137,13 @@ module Facilethings
         response = @client.post(rest_path, extract_body)
       end
       unless response[:error]
-        #fields = response[response.keys[0]]
-        #@id = fields[:id].to_i unless self.id
-        #@created_at = DateTime.iso8601(fields[:created_at])
-        #@updated_at = DateTime.iso8601(fields[:updated_at])
-        @id = response[:id].to_i unless self.id
-        @created_at = DateTime.iso8601(response[:created_at])
-        @updated_at = DateTime.iso8601(response[:updated_at])
+        fields = response[response.keys[0]]
+        @id = fields[:id].to_i unless self.id
+        @created_at = DateTime.iso8601(fields[:created_at])
+        @updated_at = DateTime.iso8601(fields[:updated_at])
+        #@id = response[:id].to_i unless self.id
+        #@created_at = DateTime.iso8601(response[:created_at])
+        #@updated_at = DateTime.iso8601(response[:updated_at])
       end
       response
     end
