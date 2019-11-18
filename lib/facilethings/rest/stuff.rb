@@ -14,8 +14,8 @@ module Facilethings
 	    end
 
       # admin - daily report
-      def search_stuff(user_id, state, conditions=nil)
-        url = "/v1/stuff/search.json?user_id=#{user_id}&state=#{state}"
+      def search_stuff_by_state(user_id, state, conditions=nil)
+        url = "/v1/stuff/search_by_state.json?user_id=#{user_id}&state=#{state}"
         url << "&conditions=#{CGI::escape(conditions)}" if conditions
         get_with_objects(url, {}, Facilethings::Stuff, :stuff)
       end
