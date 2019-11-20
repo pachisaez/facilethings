@@ -6,6 +6,7 @@ require 'facilethings/rest/campaign'
 require 'facilethings/rest/subscription'
 
 require 'facilethings/rest/channel'
+require 'facilethings/rest/ocal_connection'
 
 require 'facilethings/rest/ticket'
 require 'facilethings/rest/ticket_reply'
@@ -24,6 +25,7 @@ module Facilethings
       include Facilethings::REST::Subscription
 
       include Facilethings::REST::Channel
+      include Facilethings::REST::OcalConnection
       
       include Facilethings::REST::Ticket
       include Facilethings::REST::TicketReply

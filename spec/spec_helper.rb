@@ -17,7 +17,7 @@ FT_SECRET = "b86d1f3f0883cf4af042626e8ede218e03f1366d05c480cd442d301fced7657b"
 MY_ACCESS_TOKEN = "a3a3b4431ca6462dcb940aa637ccad754c153ebc5fb0f7c6930473e323c06066"
 
 FT_ENDPOINT = "http://api.lvh.me:3003"
-USER_AGENT = "Faraday v0.15.4"
+USER_AGENT = "Faraday v0.17.0"
 
 WebMock.disable_net_connect!
 #WebMock.disable_net_connect!(:allow => "api.lvh.me")

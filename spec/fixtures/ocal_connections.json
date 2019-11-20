@@ -1,0 +1,28 @@
+[
+  {
+    "ocal_connection": {
+      "id": 40,
+      "user_id": 1,
+      "token": "token1",
+      "expires_at": 1574188068,
+      "refresh_token": "token2",
+      "subscription_id": "07bbd09f-1b1e-4219-9464-2fb9b7936bb0",
+      "subscription_expiration": "2019-11-22 12:27:34",
+      "created_at": "2019-11-12 12:27:34",
+      "updated_at": "2019-11-12 12:27:34"
+    }
+  },
+  {
+    "ocal_connection": {
+      "id": 44,
+      "user_id": 2,
+      "token": "token3",
+      "expires_at": 1574188555,
+      "refresh_token": "token4",
+      "subscription_id": "uuid1",
+      "subscription_expiration": "2019-11-21 11:35:34",
+      "created_at": "2019-11-12 12:27:34",
+      "updated_at": "2019-11-12 12:27:34"
+    }
+  }
+]
