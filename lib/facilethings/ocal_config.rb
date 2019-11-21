@@ -1,7 +1,7 @@
 require 'facilethings/base'
 
 module Facilethings	
-	class OcalConnection < Facilethings::Base
+	class OcalConfig < Facilethings::Base
     attr_reader :subscription_id, :subscription_expiration
 
     def renew
@@ -10,7 +10,7 @@ module Facilethings
 
   protected
   	def resource_path
-    	"/#{VERSION_URL}/ocal_connections"
+    	"/#{VERSION_URL}/ocal_configs"
   	end
 	end
 end

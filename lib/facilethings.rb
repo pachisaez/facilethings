@@ -13,7 +13,7 @@ require 'facilethings/admin'
 require 'facilethings/campaign'
 require 'facilethings/subscription'
 require 'facilethings/channel'
-require 'facilethings/ocal_connection'
+require 'facilethings/ocal_config'
 
 require 'facilethings/stuff'
 require 'facilethings/person'
