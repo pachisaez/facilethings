@@ -144,4 +144,16 @@ describe Facilethings::User do
     end
   end
 
+  describe ".remove" do
+    before do
+			@user = Facilethings::User.new(@client, { :id => 1 }) 
+      stub_delete('/v1/users/1/remove.json').to_return(:status => 200, :body => fixture('ok.json'), :headers => {})
+    end
+    it 'remove the account' do
+    	result = @user.remove
+      expect(a_delete('/v1/users/1/remove.json')).to have_been_made
+      expect(result).to eq(true)
+    end
+  end
+
 end

@@ -64,6 +64,11 @@ module Facilethings
       result[:ok]
     end
 
+    def remove
+      result = @client.delete(resource_path + "/#{id}/remove.json")
+      result[:ok]
+    end
+
   protected
   	def resource_path
     	"/#{VERSION_URL}/users"
