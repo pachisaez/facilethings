@@ -14,6 +14,7 @@ require 'facilethings/campaign'
 require 'facilethings/subscription'
 require 'facilethings/channel'
 require 'facilethings/ocal_config'
+require 'facilethings/mail'
 
 require 'facilethings/stuff'
 require 'facilethings/person'

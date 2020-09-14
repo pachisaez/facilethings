@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    facilethings (0.0.15)
+    facilethings (0.0.16)
       json
       oauth2
       rails (~> 5.2.4.3)

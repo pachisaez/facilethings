@@ -4,6 +4,7 @@ require 'facilethings/rest/coupon'
 require 'facilethings/rest/admin'
 require 'facilethings/rest/campaign'
 require 'facilethings/rest/subscription'
+require 'facilethings/rest/mail'
 
 require 'facilethings/rest/channel'
 require 'facilethings/rest/ocal_config'
@@ -23,6 +24,7 @@ module Facilethings
       include Facilethings::REST::Admin
       include Facilethings::REST::Campaign
       include Facilethings::REST::Subscription
+      include Facilethings::REST::Mail
 
       include Facilethings::REST::Channel
       include Facilethings::REST::OcalConfig
