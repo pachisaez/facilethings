@@ -7,7 +7,7 @@ module Facilethings
     attr_reader :info, :time_zone, :role
     attr_reader :first_name, :last_name, :avatar
     attr_accessor :language, :mail, :password, :password_confirmation, :date_format, :time_format
-    attr_accessor :source, :campaign_code, :active
+    attr_accessor :source, :campaign_code, :active, :coupon_code
     attr_datetime :next_payment
     attr_accessor :automated_billing
 
