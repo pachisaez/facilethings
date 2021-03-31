@@ -1,4 +1,4 @@
 [
-{ "stuff": { "id": 32, "text": "this is a task", "created_at": "2014-10-28", "reminder": "2016-10-1", "state": 0, "finished": 0, "project": { "id": 34, "name": "project 34"}, "person": { "id": 324, "name": "pachi"}, "checkpoints": [{ "id": 21, "description": "kitchen" }, { "id": 22, "description": "bathroom" }] }},
+{ "stuff": { "id": 32, "text": "this is a task", "created_at": "2014-10-28", "reminder": "2016-10-1", "state": 0, "finished": 0, "project": { "id": 34, "name": "project 34"}, "checkpoints": [{ "id": 21, "description": "kitchen" }, { "id": 22, "description": "bathroom" }] }},
 { "stuff": { "id": 33, "text": "this is another task", "created_at": "2014-10-28", "reminder": "2016-10-1", "state": 0, "finished": 0 }}
 ]

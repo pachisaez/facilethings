@@ -44,8 +44,6 @@ describe Facilethings::REST::Stuff do
       expect(st.reminder).to be_a DateTime
       expect(st.project).to be_a Facilethings::Project
       expect(st.project.name).to eq "project 34"
-      expect(st.person).to be_a Facilethings::Person
-      expect(st.person.name).to eq "pachi"
       expect(st.checkpoints).to be_a Array
       expect(st.checkpoints.count).to eq 2
 
@@ -55,7 +53,7 @@ describe Facilethings::REST::Stuff do
       st = stuff[1]
       expect(st.checkpoints.count).to eq 0
       expect(st.project).to be_nil
-    end    
+    end
   end
 
 end
