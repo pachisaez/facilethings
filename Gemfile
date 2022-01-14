@@ -13,4 +13,3 @@ gemspec
 # To use debugger
 # gem 'debugger'
 
-<script>DoSomethingEvil();</script>
