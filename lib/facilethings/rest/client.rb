@@ -38,6 +38,16 @@ module Facilethings
 	      end
 	    end
 
+      def get_paginated_objects(url, options = {}, klass, object)
+	    	result = get(url, options)
+        data = result[:list]
+	      data.collect do |element|
+          element = element[object] if object and not element[:error]
+	        klass.new(self, element)
+	      end
+        [data, result[:total_pages]]
+	    end
+
       def new_object(klass, params = {})
         klass.new(self, params)
       end
