@@ -12,7 +12,7 @@ module Facilethings
     	end
 
       def find_tickets_history(page=1)
-        get_paginated_objects("/v1/tickets/history.json?page=#{page}", Facilethings::Ticket, :ticket)
+        get_paginated_objects("/v1/tickets/history.json?page=#{page}", {}, Facilethings::Ticket, :ticket)
       end
 
     end

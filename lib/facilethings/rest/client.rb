@@ -41,7 +41,7 @@ module Facilethings
       def get_paginated_objects(url, options = {}, klass, object)
 	    	result = get(url, options)
         data = result[:list]
-	      data.collect do |element|
+	      data = data.collect do |element|
           element = element[object] if object and not element[:error]
 	        klass.new(self, element)
 	      end
