@@ -8,6 +8,7 @@ module Facilethings
 	  attr_datetime :reminder, :actioned_at, :done_at, :start_at
     attr_object :project
     attr_objects :checkpoints
+		attr_objects :people
 
   protected
   	def resource_path
