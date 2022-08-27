@@ -2,7 +2,7 @@ require 'facilethings/base'
 
 module Facilethings	
 	class Coupon < Facilethings::Base
-    attr_accessor :code, :note
+    attr_accessor :code, :note, :stripe_id
     attr_integer :amount
     attr_float :discount
 
